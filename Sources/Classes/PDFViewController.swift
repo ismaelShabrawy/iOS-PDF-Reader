@@ -127,9 +127,6 @@ public final class PDFViewController: UIViewController {
         }
     }
     
-    /// Reset page when its unpresented
-    public var resetZoom: Bool = false
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
     
@@ -281,9 +278,6 @@ extension PDFViewController: UIScrollViewDelegate {
         }
         
         if updatedPageIndex != currentPageIndex {
-            if resetZoom {
-                self.collectionView.reloadItems(at: [IndexPath(item: currentPageIndex, section: 0)])
-            }
             currentPageIndex = updatedPageIndex
             thumbnailCollectionController?.currentPageIndex = currentPageIndex
         }
